@@ -1,5 +1,5 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
+#ifndef BRICK_H
+#define BRICK_H
 
 //A brick object with it's 3 edges
 typedef struct Brick {
