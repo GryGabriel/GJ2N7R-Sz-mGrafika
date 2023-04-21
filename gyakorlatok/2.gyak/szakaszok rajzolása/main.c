@@ -57,8 +57,8 @@ int main(int argc, char* argv[]){
     while (running) {
         //Színpaletta kirajzolása:
         draw_color_palette(renderer,colors,color_pos,6,4);
-        while (SDL_PollEvent(&event)) {
-            switch (event.type) {
+        while(SDL_PollEvent(&event)){
+            switch(event.type){
                 case SDL_MOUSEBUTTONDOWN:
                     SDL_GetMouseState(&line_demo[0],&line_demo[1]);
                     if(line_demo[1] <= 100){ //Megvizsgálja, hogy a rajzoló felületen kívül(a színpaletta területén) történt-e a kattintás
@@ -98,16 +98,14 @@ int main(int argc, char* argv[]){
                 case SDL_QUIT:
                     running= false;
                     break;
-                    
             }
         }
         for(int i=0;i<line_count;i++){
             //szakasz
             SDL_SetRenderDrawColor(renderer,line[i].color.R,line[i].color.G,line[i].color.B,0);
             SDL_RenderDrawLine(renderer,line[i].x1,line[i].x2,line[i].y1,line[i].y2);
-            SDL_RenderPresent(renderer);
-            
-            //téglalap /Még nem teljesen működőképes
+
+            //téglalap (Még nem teljesen működőképes)
             /*SDL_Rect rectangle;
         
             if(line[i].x1 < line[i].y1){
