@@ -15,6 +15,13 @@ void init_rectangle(SDL_Rect *rectangle, int *values){
     rectangle->h = values[3];
 }
 
+int check_coordinates(int mouse_x, int mouse_y, int x1, int x2, int y1, int y2){
+    if(mouse_x >= x1 && mouse_x <= x2 && mouse_y >= y1 && mouse_y <= y2) 
+        return 1;
+    else
+        return 0;
+}
+
 void save_circle(int (*circles)[6], int *circle_count, int x, int y, int radius, int current_color[3]){
     circles[*circle_count][0] = x;
     circles[*circle_count][1] = y;
@@ -46,36 +53,16 @@ void draw_circles(SDL_Renderer* renderer, int (*circles)[6], int circle_count){
     }
 }
 
-void draw_right_scale_arrow(SDL_Renderer* renderer, int arrow[3]){
-    int first_x,first_y,second_x,second_y;
+void move_circle(SDL_Renderer* renderer, int (*circles)[6], int circle_counter, int mouse_x, int mouse_y){
 
-	first_x = arrow[0] + arrow[2];
-	first_y = arrow[1];
-	float angle = M_PI/180.0 * 120;
-	for(float i = 0;i <= 2.0 * M_PI + angle; i += angle){ // "+ angle" makes it work with large angles like 90 or 120
-		second_x = arrow[0] + arrow[2] * cos(i);
-		second_y = arrow[1] + arrow[2] * sin(i);
-		SDL_SetRenderDrawColor(renderer,255,255,255,255);
-		SDL_RenderDrawLine(renderer,first_x,first_y,second_x,second_y);
-
-		first_x = second_x;
-		first_y = second_y;
-	}
-}
-
-void draw_left_scale_arrow(SDL_Renderer* renderer, int arrow[3]){
-    int first_x,first_y,second_x,second_y;
-
-	first_x = arrow[0] - arrow[2];
-	first_y = arrow[1];
-	float angle = M_PI/180.0 * 120;
-	for(float i = 0;i <= 2.0 * M_PI + angle; i += angle){ // "+ angle" makes it work with large angles like 90 or 120
-		second_x = arrow[0] - arrow[2] * cos(i);
-		second_y = arrow[1] + arrow[2] * sin(i);
-		SDL_SetRenderDrawColor(renderer,255,255,255,255);
-		SDL_RenderDrawLine(renderer,first_x,first_y,second_x,second_y);
-
-		first_x = second_x;
-		first_y = second_y;
-	}
+    //for(int i = circle_counter; i >= 0; i++){
+        float angle, step = M_PI / 180;
+    for (angle = 0; angle <= 360; angle += 10) {
+        float radians = angle * step;
+        float x_point = circles[0][0] + circles[0][2] * cos(radians);
+        float y_point = circles[0][1] + circles[0][2] * sin(radians);
+        printf("Pont(%d, %d)\n", (int)x_point, (int)y_point);
+    //}
+    }
+    printf("\n");
 }
