@@ -80,7 +80,6 @@ int main(int argc, char* argv[])
 			switch(event.type){
 				case SDL_MOUSEBUTTONDOWN:
 					SDL_GetMouseState(&mousex,&mousey);
-					printf("%d %d\n", mousex,mousey);
 					break;
 				case SDL_KEYDOWN:
 				case SDL_SCANCODE_Q:

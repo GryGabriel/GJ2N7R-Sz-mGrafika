@@ -1,0 +1,2 @@
+all:
+	gcc -Iinclude/ test.c -Wall -I/opt/homebrew/include/SDL2 -I/opt/homebrew/Cellar/sdl_ttf/2.0.11_2/include/SDL -D_THREAD_SAFE -L/opt/homebrew/lib -L/opt/homebrew/Cellar/sdl_ttf/2.0.11_2/lib -lSDL2 -lSDL2_ttf -o main

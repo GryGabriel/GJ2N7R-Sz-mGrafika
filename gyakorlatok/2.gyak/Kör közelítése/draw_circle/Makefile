@@ -1,2 +1,2 @@
 all:
-	gcc -Iinclude/ src/main.c src/circle.c -Wall -I/opt/homebrew/include/SDL2 -D_THREAD_SAFE -L/opt/homebrew/lib -lSDL2 -o main
+	gcc -Iinclude/ src/main.c src/draw_circle.c -Wall -I/opt/homebrew/include/SDL2 -I/opt/homebrew/Cellar/sdl_ttf/2.0.11_2/include/SDL -D_THREAD_SAFE -L/opt/homebrew/lib -L/opt/homebrew/Cellar/sdl_ttf/2.0.11_2/lib -lSDL2 -lSDL2_ttf -o main

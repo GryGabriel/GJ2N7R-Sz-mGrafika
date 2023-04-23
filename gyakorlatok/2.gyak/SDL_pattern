@@ -1,0 +1,64 @@
+#include <SDL.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    SDL_Window* window;
+    SDL_Renderer* renderer;
+    SDL_Event event;
+
+    bool running;
+    int error_code;
+    int window_size = 640;
+
+    /**
+	 * SDL initialization
+	 * */
+	error_code = SDL_Init(SDL_INIT_EVERYTHING);
+	if(error_code != 0){
+		printf("[ERROR] SDL initialization error: %s\n", SDL_GetError());
+		return error_code;
+	}
+
+    /**
+	 * Create SDL window 
+	 * */
+	window = SDL_CreateWindow("Kör közelítése", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_size, window_size, 0);
+
+	/**
+	 * Display SDL window
+	 * */
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+	if(renderer == NULL){
+		printf("[ERROR Monitor cannot be created: %s\n", SDL_GetError());
+		exit(1);
+	} 
+
+    running = true;
+
+    while(running){
+        while(SDL_PollEvent(&event)){
+            switch(event.type){
+                case SDL_MOUSEBUTTONDOWN:
+                    break;
+                case SDL_KEYDOWN:
+                case SDL_SCANCODE_Q:
+                    running = false;
+                    break;
+                case SDL_QUIT:
+                    running = false;
+                    break;
+            }
+        }
+    }
+
+    /**
+	 * Destroy SDL objects 
+	 **/
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+
+	return 0;
+}
