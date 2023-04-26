@@ -53,6 +53,10 @@ void draw_circles(SDL_Renderer* renderer, int (*circles)[6], int circle_count){
     }
 }
 
+
+/**
+ * Not finished yet
+*/
 void move_circle(SDL_Renderer* renderer, int (*circles)[6], int circle_counter, int mouse_x, int mouse_y){
 
     //for(int i = circle_counter; i >= 0; i++){
