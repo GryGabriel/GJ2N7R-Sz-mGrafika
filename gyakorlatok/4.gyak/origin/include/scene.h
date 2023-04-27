@@ -5,6 +5,8 @@
 
 typedef struct Scene
 {
+    double sphere_angle;
+    double sphere_rotspeed;
 } Scene;
 
 /**
@@ -26,5 +28,9 @@ void render_scene(const Scene* scene);
  * Draw the origin of the world coordinate system.
  */
 void draw_origin();
+
+void draw_triangle();
+
+void draw_sphere(Scene* scene);
 
 #endif /* SCENE_H */

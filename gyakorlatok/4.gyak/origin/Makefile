@@ -1,0 +1,2 @@
+all:
+	gcc -Iinclude/ src/app.c src/camera.c src/main.c src/scene.c src/utils.c -I/opt/homebrew/include/SDL2 -D_THREAD_SAFE -L/opt/homebrew/lib -lSDL2 -I/opt/homebrew/Cellar/glfw/include/ -L/opt/homebrew/Cellar/glfw/lib-arm64 -lglfw3 -lm -framework Cocoa -framework OpenGL -framework IOKit -lSDL2 -lSDL2_image -lm -o origin -Wall -Wextra -Wpedantic
