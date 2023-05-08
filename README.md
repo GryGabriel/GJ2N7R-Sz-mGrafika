@@ -4,7 +4,7 @@ Féléves feladat:
 - Minden megnyitás egy billentyű lenyomásával hozható elő, majd az R billentyűvel állítható vissza alapállásba.
   A felhasználó tud a tábla körül mozogni (átlátva így a pozíciókat mindkét fél szemszögéből), és állítani a fényerőt szintén billentyűlenyomással.
 
-- A tábla egy klasszikus, kétszemélyes 8x8-as sakk tábla, melyen a klasszikus színelosztás látható, fehér és fekete (bár nem minden esetben szó szerint fekete és fehér; általában a világosabb sárgábbat, a sötétebb pedig barnább árnyalatot jelent).
+- A tábla egy klasszikus, kétszemélyes 8x8-as sakk tábla, melyen a klasszikus színelosztás látható, világos (fehér) és sötét (fekete). Nem minden esetben szó szerint fehér és fekete; általában a fehér világos sárgát, a fekete pedig világos barnát jelent.
   A tábla mellett - fehér jobb oldalán - található egy sakkóra. (Amennyiben találok hozzá ingyenes modellt)
 
 - A megnyitások bemutatása animálással történik. 
