@@ -15,10 +15,12 @@ typedef struct Scene
     GLuint table_texture;
 
     Model white_pieces[16];
+    //vec3 white_positions[16]; //a float tömb helyett lehetne használni
     float white_coordinates[16][3];
     GLuint white_texture;
 
     Model black_pieces[16];
+    //vec3 black_positions[16]; //a float tömb helyett lehetne használni
     float black_coordinates[16][3];
     GLuint black_texture;
 
@@ -29,6 +31,8 @@ typedef struct Scene
     bool is_menu_open; //This variable tells whether the menu is open or not
 
     bool f1, f2, f3, f4;
+
+    bool animation_is_on;
     
 } Scene;
 
@@ -69,8 +73,14 @@ void draw_menu();
 
 void init_coordinates(Scene* scene);
 
+void draw_table(const Scene* scene);
+
 void ruy_lopez(Scene* scene, SDL_Window* window);
 
-void default_table(const Scene* scene);
+void sicilian(Scene* scene, SDL_Window* window);
+
+void scandinavian(Scene* scene, SDL_Window* window);
+
+void london(Scene* scene, SDL_Window* window);
 
 #endif /* SCENE_H */

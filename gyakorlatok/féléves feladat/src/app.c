@@ -127,16 +127,16 @@ void handle_app_events(App* app)
             case SDL_SCANCODE_D:
                 set_camera_side_speed(&(app->camera), -5);
                 break;
+            // case SDL_SCANCODE_C:
+            //     set_camera_vertical_speed(&(app->camera), 5);
+            //     break;
+            // case SDL_SCANCODE_V:
+            //     set_camera_vertical_speed(&(app->camera), -5);
+            //     break;
             case SDL_SCANCODE_Q:
-                set_camera_vertical_speed(&(app->camera), 5);
-                break;
-            case SDL_SCANCODE_E:
-                set_camera_vertical_speed(&(app->camera), -5);
-                break;
-            case SDL_SCANCODE_R:
                 rotate_camera(&(app->camera), 5, 0);
                 break;
-            case SDL_SCANCODE_F:
+            case SDL_SCANCODE_E:
                 rotate_camera(&(app->camera), -5, 0);
                 break;
             case SDL_SCANCODE_M:
@@ -154,7 +154,31 @@ void handle_app_events(App* app)
                 }
                 break;
             case SDL_SCANCODE_F1:
-                app->scene.f1 = true;
+                if(!app->scene.f1 && !app->scene.animation_is_on){
+                    app->scene.f1 = true;
+                    app->scene.animation_is_on = true;
+                }
+                break;
+            case SDL_SCANCODE_F2:
+                if(!app->scene.f2 && !app->scene.animation_is_on){
+                    app->scene.f2 = true;
+                    app->scene.animation_is_on = true;
+                }
+                break;
+            case SDL_SCANCODE_F3:
+                if(!app->scene.f3 && !app->scene.animation_is_on){
+                    app->scene.f3 = true;
+                    app->scene.animation_is_on = true;
+                }
+                break;
+            case SDL_SCANCODE_F4:
+                if(!app->scene.f4 && !app->scene.animation_is_on){
+                    app->scene.f4 = true;
+                    app->scene.animation_is_on = true;
+                }
+                break;
+            case SDL_SCANCODE_R:
+                init_scene(&(app->scene));
                 break;
             default:
                 break;
@@ -170,12 +194,12 @@ void handle_app_events(App* app)
             case SDL_SCANCODE_D:
                 set_camera_side_speed(&(app->camera), 0);
                 break;
-            case SDL_SCANCODE_Q:
-            case SDL_SCANCODE_E:
+            case SDL_SCANCODE_C:
+            case SDL_SCANCODE_V:
                 set_camera_vertical_speed(&(app->camera), 0);
                 break;
-            case SDL_SCANCODE_R:
-            case SDL_SCANCODE_F:
+            case SDL_SCANCODE_Q:
+            case SDL_SCANCODE_E:
                 rotate_camera(&(app->camera), 0, 0);
                 break;
             default:
